@@ -1,0 +1,31 @@
+---
+title: "About Me"
+lastUpdated: "2024-03-20"
+---
+
+# About Me
+
+Hi, I'm Vinicius Pacheco, a Full Stack Developer with a passion for building great products and teaching others. I've been working in tech for over a decade, focusing on creating scalable web applications and mentoring developers.
+
+## Background
+
+I started my journey in technology when I was 15, building small websites for local businesses. Since then, I've worked with various technologies and frameworks, always staying at the forefront of web development.
+
+## What I Do
+
+- **Full Stack Development**: Proficient in both frontend and backend development
+- **Technical Leadership**: Led multiple teams and projects to successful delivery
+- **Teaching**: Passionate about sharing knowledge through mentoring and writing
+- **Dancing**: When not coding, you can find me teaching or practicing dance
+
+## Technical Skills
+
+- **Frontend**: React, Next.js, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Python, Go
+- **Databases**: PostgreSQL, MongoDB
+- **Cloud**: AWS, Google Cloud Platform
+- **DevOps**: Docker, Kubernetes, CI/CD
+
+## Get in Touch
+
+Feel free to reach out to me on [Twitter](https://twitter.com/vinpac) or [LinkedIn](https://linkedin.com/in/vinpac). I'm always open to interesting conversations and collaboration opportunities.
