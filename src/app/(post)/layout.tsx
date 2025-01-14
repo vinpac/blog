@@ -12,7 +12,7 @@ export default async function PostLayout({
   const posts = await getPosts();
 
   return (
-    <div className="min-h-screen text-white p-8 max-w-3xl mx-auto flex flex-col">
+    <div className="min-h-screen  p-8 max-w-3xl mx-auto flex flex-col">
       <PostHeader posts={posts} />
 
       <article className="prose prose-invert flex-1">{children}</article>

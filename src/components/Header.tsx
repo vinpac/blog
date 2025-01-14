@@ -4,6 +4,7 @@ import {
   FaTwitter as Twitter,
 } from "react-icons/fa";
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header({ className }: { className?: string }) {
   return (
@@ -16,6 +17,7 @@ export function Header({ className }: { className?: string }) {
           </h1>
         </Link>
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <a
             href="https://github.com/vinpac"
             className="text-gray-400 hover:text-white transition-colors"
