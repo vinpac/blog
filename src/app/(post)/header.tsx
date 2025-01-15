@@ -15,10 +15,12 @@ export const PostHeader = ({ posts }: { posts: Post[] }) => {
 
   return (
     <>
-      <Header className="mb-6" />
+      <Header />
 
-      <h1 className="text-2xl font-bold mb-2">{initialPost.title}</h1>
-      <div className="dark:text-gray-500 mb-6 text-sm flex">
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        {initialPost.title}
+      </h1>
+      <div className="text-gray-600 dark:text-gray-500 mb-6 text-sm flex">
         <abbr title={initialPost.date} className="no-underline">
           {format(new Date(initialPost.date), "MMMM d, yyyy")} (
           {formatDistanceToNow(new Date(initialPost.date), {

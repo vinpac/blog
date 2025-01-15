@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "sync-posts-json": "ts-node --project tsconfig.node.json sync-posts-json.ts",
-    "postinstall": "yarn sync-posts-json"
+    "postinstall": "yarn sync-posts-json",
+    "ts:check": "tsc --noEmit"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",

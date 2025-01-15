@@ -6,14 +6,17 @@ export function Footer({ className }: { className?: string }) {
 
   return (
     <footer
-      className={`text-gray-400 border-t border-gray-800 mt-24 pt-8 pb-16 ${className}`}
+      className={` dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 mt-24 pt-8 pb-16 ${className}`}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex text-gray-400 items-center justify-between">
         <div className="text-sm">
           © {currentYear} Vinicius Pacheco. All rights reserved.
         </div>
         <nav className="flex gap-6 text-sm">
-          <Link href="/about" className="hover:text-white transition-colors">
+          <Link
+            href="/about"
+            className="hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
             About
           </Link>
         </nav>

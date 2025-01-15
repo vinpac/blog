@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { getPosts } from "@/app/get-posts";
 
 export default async function Blog() {
@@ -8,15 +7,15 @@ export default async function Blog() {
   let lastRenderedYear: number | null = null;
 
   return (
-    <div className="min-h-screen p-8 max-w-3xl mx-auto flex flex-col">
+    <>
       <Header />
-      <p className="text-gray-400 text-lg mb-12">
+      <p className="text-gray-600 dark:text-gray-400 text-lg mb-12">
         Full Stack developer Developer working to get the most out of the world
       </p>
       <main className="-mx-4 flex-1">
         <table className="w-full">
           <thead>
-            <tr className="font-mono text-left text-gray-400 border-b border-gray-800">
+            <tr className="font-mono text-left text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800">
               <th className="pl-4 pb-2 uppercase text-xs font-medium">Date</th>
               <th className="px-2 pl-4 pb-2 uppercase text-xs font-medium">
                 Title
@@ -28,13 +27,13 @@ export default async function Blog() {
           </thead>
           <tbody>
             {posts.map((post) => {
-              let year = new Date(post.date).getFullYear();
+              const year = new Date(post.date).getFullYear();
               const isNewYear = lastRenderedYear !== year;
               lastRenderedYear = year;
               return (
                 <tr
                   key={post.id}
-                  className="group cursor-pointer hover:bg-gray-800/50 transition-colors"
+                  className="group cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors"
                 >
                   <td
                     className={[
@@ -44,7 +43,7 @@ export default async function Blog() {
                   >
                     {year}
                   </td>
-                  <td className="px-2 pl-4 text-gray-300 group-hover:text-gray-200">
+                  <td className="px-2 pl-4 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-200">
                     <Link
                       href={`/${new Date(post.date).getFullYear()}/${post.id}`}
                       className="block hover:underline py-3 w-full"
@@ -61,7 +60,6 @@ export default async function Blog() {
           </tbody>
         </table>
       </main>
-      <Footer />
-    </div>
+    </>
   );
 }
