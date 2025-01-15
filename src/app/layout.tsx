@@ -4,7 +4,6 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { themeEffect } from "@/app/theme-effect";
 import { Footer } from "@/components/Footer";
-import { Favicon } from "@/app/favicon";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
