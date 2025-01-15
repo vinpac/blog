@@ -17,9 +17,26 @@ export const themeEffect = function () {
   ) {
     document.documentElement.classList.add("pause-transitions");
     document.documentElement.classList.add("dark");
+    // document.head.querySelectorAll('link[rel="icon"]').forEach((l) => {
+    //   l.setAttribute(
+    //     "href",
+    //     (l.getAttribute("href") as string).replace("light", "dark")
+    //   );
+    // });
+    // document.head
+    //   .querySelectorAll("link[rel='apple-touch-icon']")
+    //   .forEach((l) => {
+    //     l.setAttribute(
+    //       "href",
+    //       (l.getAttribute("href") as string).replace("light", "dark")
+    //     );
+    //   });
+    document.head
+      .querySelector("meta[name='msapplication-TileColor']")
+      ?.setAttribute("content", "#0a0a0a");
     document.head
       .querySelector("meta[name=theme-color]")
-      ?.setAttribute("content", "#1c1c1c");
+      ?.setAttribute("content", "#0a0a0a");
 
     requestAnimationFrame(() => {
       document.documentElement.classList.remove("pause-transitions");
@@ -30,7 +47,25 @@ export const themeEffect = function () {
     document.documentElement.classList.remove("dark");
     document.head
       .querySelector("meta[name=theme-color]")
-      ?.setAttribute("content", "#fcfcfc");
+      ?.setAttribute("content", "#fafaf9");
+    // document.head.querySelectorAll('link[rel="icon"]').forEach((l) => {
+    //   l.setAttribute(
+    //     "href",
+    //     (l.getAttribute("href") as string).replace("dark", "light")
+    //   );
+    // });
+    // document.head
+    //   .querySelectorAll("link[rel='apple-touch-icon']")
+    //   .forEach((l) => {
+    //     l.setAttribute(
+    //       "href",
+    //       (l.getAttribute("href") as string).replace("dark", "light")
+    //     );
+    //   });
+
+    document.head
+      .querySelector("meta[name='msapplication-TileColor']")
+      ?.setAttribute("content", "#fafaf9");
     requestAnimationFrame(() => {
       document.documentElement.classList.remove("pause-transitions");
     });
