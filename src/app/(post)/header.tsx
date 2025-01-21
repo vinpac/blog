@@ -3,11 +3,13 @@ import { Post } from "@/app/get-posts";
 import { Header } from "@/components/Header";
 import { useSelectedLayoutSegments } from "next/navigation";
 import { format, formatDistanceToNow } from "date-fns";
+import { usePostViews } from "@/app/hooks/usePostViews";
 
 export const PostHeader = ({ posts }: { posts: Post[] }) => {
   const segments = useSelectedLayoutSegments();
   const postId = segments[segments.length - 1];
   const initialPost = posts.find((post) => post.id === postId);
+  const { views } = usePostViews(postId);
 
   if (!initialPost) {
     return <></>;
@@ -28,7 +30,7 @@ export const PostHeader = ({ posts }: { posts: Post[] }) => {
           })}
           )
         </abbr>
-        <span className="ml-auto">{initialPost.views} views</span>
+        <span className="ml-auto">{views} views</span>
       </div>
     </>
   );
