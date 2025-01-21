@@ -4,17 +4,9 @@ import postsData from "../../../posts.json";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(
-  _: NextRequest,
-  { params }: { params: { slug: string } }
-) {
-  const views = await redis.hget("views", params.slug);
-  return NextResponse.json({ views: Number(views ?? 0) });
-}
-
 export async function POST(
   _: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
 
