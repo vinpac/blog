@@ -19,7 +19,7 @@ export const PostHeader = ({ posts }: { posts: Post[] }) => {
     <>
       <Header />
 
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 mt-6">
         {initialPost.title}
       </h1>
       <div className="text-gray-600 dark:text-gray-500 mb-6 text-sm flex">

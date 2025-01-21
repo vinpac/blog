@@ -7,7 +7,7 @@ export default function AboutLayout({
 }) {
   return (
     <>
-      <Header className="print:mb-0 mb-6" />
+      <Header className="print:mb-0 mb-2" />
 
       <article className="prose dark:prose-invert flex-1">{children}</article>
     </>

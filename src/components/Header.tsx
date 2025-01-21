@@ -9,7 +9,7 @@ import { ThemeToggle } from "./ThemeToggle";
 export function Header({ className }: { className?: string }) {
   return (
     <header className={className}>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between">
         <Link href="/" className="hover:opacity-80 transition-opacity">
           <h1 className="text-md sm:text-xl font-semibold text-gray-900 dark:text-white">
             Vinicius Pacheco{" "}

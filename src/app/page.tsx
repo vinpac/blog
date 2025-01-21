@@ -9,10 +9,7 @@ export default async function Blog() {
   return (
     <>
       <Header />
-      <p className="text-gray-600 dark:text-gray-400 text-lg mb-12">
-        Full Stack developer Developer working to get the most out of the world
-      </p>
-      <main className="-mx-4 flex-1">
+      <main className="-mx-4 flex-1 mt-8">
         <table className="w-full">
           <thead>
             <tr className="font-mono text-left text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800">
