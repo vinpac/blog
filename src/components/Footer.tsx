@@ -6,7 +6,7 @@ export function Footer({ className }: { className?: string }) {
 
   return (
     <footer
-      className={` dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 mt-24 pt-8 pb-16 ${className}`}
+      className={` dark:text-gray-400 border-t print:hidden border-gray-200 dark:border-gray-800 mt-24 pt-8 pb-16 ${className}`}
     >
       <div className="flex text-gray-400 items-center justify-between">
         <div className="text-sm">

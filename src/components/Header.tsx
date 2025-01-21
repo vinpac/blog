@@ -51,7 +51,7 @@ export function Header({ className }: { className?: string }) {
           </div>
           <Link
             href="/about"
-            className="text-sm px-3 py-1.5 rounded-md text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800 transition-colors"
+            className="text-sm px-3 py-1.5 rounded-md text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800 transition-colors print:hidden"
           >
             <span>About </span>
             <span className="hidden sm:inline">Me</span>
