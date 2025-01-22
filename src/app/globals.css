@@ -17,6 +17,7 @@
     /* note: must keep in sync with `theme-color` in `theme-effect.ts` */
     @apply bg-gray-50;
     @apply text-gray-900;
+    --radius: 0.5rem;
   }
 
   :root.dark {
@@ -27,5 +28,30 @@
 
   :root.pause-transitions * {
     transition-duration: 0ms !important;
+  }
+
+  @keyframes flip {
+    0% {
+      transform: rotateX(0deg) translateY(0);
+    }
+    100% {
+      transform: rotateX(-180deg) translateY(-100%);
+    }
+  }
+
+  .animate-flip {
+    transition: transform 500ms;
+    transform-style: preserve-3d;
+  }
+  .animate-flip {
+    animation: flip 500ms 1;
+  }
+
+  .animate-flip-2 {
+    transform: rotateX(-180deg) translateY(-100%);
+  }
+
+  .-transform-rotate-180 {
+    transform: rotateX(-180deg);
   }
 }

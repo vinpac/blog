@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import { stone } from "tailwindcss/colors";
 
 export default {
-  darkMode: "class",
+  darkMode: ["class"],
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,7 +14,12 @@ export default {
         foreground: "var(--foreground)",
         gray: stone,
       },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
 } satisfies Config;

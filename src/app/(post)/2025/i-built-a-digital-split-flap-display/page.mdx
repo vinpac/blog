@@ -1,0 +1,54 @@
+import { SplitFlapDisplay } from "./split-flap-display";
+
+Since my visit to [Inhotim](https://www.google.com/search?q=inhotim+museum), I have been fascinated by split-flap displays. There's something captivating about their mechanical charm. I've always dreamed of building a real one, but life kept getting in the way.
+
+This week, I decided to take the leap—well, digitally. I built a **digital split-flap display**.
+
+<SplitFlapDisplay />
+
+## How It Works
+
+I started with [v0](https://v0.dev/), a great tool that gave me a solid foundation:
+
+[![Split Flap Display](/images/i-built-a-digital-split-flap-display/v0.png)](https://v0.dev/chat/split-flap-simulator-VIyzVhFlcW4?b=b_zcmIA4EMHpF)
+
+However, the initial version had a few limitations: the sound played only once, and the animation wasn't quite what I envisioned. Determined to improve it, I downloaded the code and started tweaking.
+
+### Adding Sound
+
+After some research, I stumbled upon a [free-licensed split-flap sound effect](https://pixabay.com/sound-effects/split-flap-display-58766/). It was perfect, but the raw file was seven seconds long, so I trimmed it and added it to the project. Here's the final sound:
+
+<audio src="/sounds/split-flap-display.mp3" controls />
+
+### Enhancing the Animation
+
+Next, I dove into the animations. Admittedly, I had never worked with 3D CSS animations before, so it was a fun (and slightly daunting) challenge. After plenty of experimentation, I came up with the following CSS:
+
+```css
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg) translateY(0);
+  }
+  100% {
+    transform: rotateX(-180deg) translateY(-100%);
+  }
+}
+
+.animate-flip {
+  transition: transform 500ms;
+  transform-style: preserve-3d;
+  animation: flip 500ms 1;
+}
+
+.-transform-rotate-180 {
+  transform: rotateX(-180deg);
+}
+```
+
+This animation added the smooth, flipping effect I was after.
+
+## Want to Build Your Own?
+
+If you'd like to see how it all works or make your own version, you can find the source code [here](https://github.com/vinpac/blog/tree/main/src/app/(post)/2025/i-built-a-digital-split-flap-display).
+
+It was very fun building this \<3
