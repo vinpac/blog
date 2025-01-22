@@ -42,13 +42,7 @@
   .animate-flip {
     transition: transform 500ms;
     transform-style: preserve-3d;
-  }
-  .animate-flip {
     animation: flip 500ms 1;
-  }
-
-  .animate-flip-2 {
-    transform: rotateX(-180deg) translateY(-100%);
   }
 
   .-transform-rotate-180 {
