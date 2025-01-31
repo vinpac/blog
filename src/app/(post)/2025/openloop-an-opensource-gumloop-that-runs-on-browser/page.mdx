@@ -1,0 +1,79 @@
+[![Openloop Usage](/openloop.gif)](https://openloop.vinpac.io)
+
+One week ago, I set out to build **Openloop**, an open-source take on workflow automation platforms. What started as a blank canvas quickly turned into a full-fledged tool that lets you create, connect, and run workflows **entirely in the browser** -- no servers, no authentication.**
+
+### 🔥 What makes Open Loop special?
+
+- ✅ **Task nodes with LLM capabilities** -- seamlessly integrate AI into your workflows
+- ✅ **Subflow support** -- build complex logic by nesting flows inside flows
+- ✅ **Right-click interactions** -- delete nodes, add new ones, all with intuitive UI
+- ✅ **Built with shadcn/ui** -- smooth, performant components for a great user experience
+- ✅ **Syncs automatically** -- refresh the page, and your workflow is still there
+- ✅ **Shareable & portable** -- generate a URL, download, or upload workflows easily
+
+### 🎨 Logo
+
+To build it fast I sketched "Open Loop" on my iPad, moved it to Figma as an SVG, and painted "open" green. I love how it turned out 🎨
+
+![Openloop Logo](/openloop.png)
+
+### 📝 Forms
+
+To not spend much time on forms, I decided to use automatically render forms based on **zod** schemas. I'm thinking on publishing a package for this. Here's sample code:
+
+```tsx
+function ZodForm({ schema, onSubmit, children, ...props }) {
+  const [values, setValues] = useState({});
+  return <form {...props} onSubmit={onSubmit}>
+    <ZodFieldComponent
+      name=""
+      schema={schema}
+      onChange={(_, value) => setValues(value)}
+      value={values}
+    />
+    {children}
+  </form>
+}
+
+function ZodFieldComponent({ name, schema: parentSchema, onChange, value }) {
+  // find the actual field schema and not .default or .optional
+  const schema = zodSchemaToInnerSchema(parentSchema)
+
+  switch (schema._def.typeName) {
+    case 'ZodObject':
+      return <div>
+        {Object.entries(schema.shape).map(([key, value]) => (
+          <ZodFieldComponent key={key} name={key} schema={value} onChange={onChange} value={value} />
+        ))}
+      </div>
+    case "ZodString":
+      return <input type="text" name={name} value={value} onChange={(e) => onChange(name, e.target.value)} />
+    case "ZodNumber":
+      return <input type="number" name={name} value={value} onChange={(e) => onChange(name, e.target.value)} />
+    case "ZodBoolean":
+      return <input type="checkbox" name={name} checked={value} onChange={(e) => onChange(name, Boolean(e.target.checked))} />
+    default:
+      return null
+  }
+}
+
+function zodSchemaToInnerSchema (f: ZodSchema) {
+  let fieldInnerSchema = f as ZodFirstPartySchemaTypes;
+
+  while (
+    fieldInnerSchema._def.typeName === "ZodOptional" ||
+    fieldInnerSchema._def.typeName === "ZodDefault"
+  ) {
+    fieldInnerSchema = fieldInnerSchema._def.innerType
+  }
+
+  return fieldInnerSchema
+}
+
+```
+
+
+
+### 🎉 Conclusion
+
+This took **around a week** to build, and I'm excited to share it with the world. If you're into **automation, AI, or open-source tools**, check it out, and let me know what you think!

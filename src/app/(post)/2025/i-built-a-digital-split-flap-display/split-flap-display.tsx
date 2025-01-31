@@ -41,12 +41,6 @@ export function SplitFlapDisplay() {
       clearTimeout(playingTimeoutRef.current);
     }
 
-    // if (!isPlayingRef.current) {
-    //   play();
-    //   isPlayingRef.current = true;
-    //   return;
-    // }
-
     playingTimeoutRef.current = setTimeout(() => {
       playingTimeoutRef.current = null;
       sound?.seek(8.86);

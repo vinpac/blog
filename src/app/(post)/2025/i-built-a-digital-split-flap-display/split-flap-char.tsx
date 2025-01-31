@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 interface SplitFlapCharProps {
   targetChar: string;
   chars: string;
-  onChangeChar: (char: string) => void;
+  onChangeChar?: (char: string) => void;
 }
 
 const FLIP_DELAY = 75;
@@ -19,6 +19,8 @@ export function SplitFlapChar({
   const [nextChar, setNextChar] = useState(chars[0]);
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipKey, setFlipKey] = useState(0);
+  const onChangeCharRef = useRef(onChangeChar);
+  onChangeCharRef.current = onChangeChar;
 
   useEffect(() => {
     let currentIndex = chars.indexOf(currentChar);
@@ -33,11 +35,10 @@ export function SplitFlapChar({
       setIsFlipping(true);
       setNextChar(next);
       setFlipKey((prev) => prev + 1);
-      onChangeChar(next);
+      onChangeCharRef.current?.(next);
 
       // After animation completes
       setTimeout(() => {
-        console.log("timeout");
         setCurrentChar(next);
         setIsFlipping(false);
       }, FLIP_DELAY - 10);
