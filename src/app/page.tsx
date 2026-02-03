@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { getPosts } from "@/app/get-posts";
+import { ProfileHeaderSection } from "@/app/about/about-header";
 
 export default async function Blog() {
   const posts = await getPosts();
@@ -9,7 +10,18 @@ export default async function Blog() {
   return (
     <>
       <Header />
-      <main className="-mx-4 flex-1 mt-8">
+      <main className="bg-white dark:bg-gray-950 border-x dark:border-gray-800 border-b  pb-16 flex-1 mt-8">
+        {/* Hero Section */}
+        <ProfileHeaderSection>
+          <h1 className="text-4xl md:text-5xl tracking-tight !leading-tight text-gray-900 dark:text-gray-100">
+            Hi there,
+            <br />
+            I&apos;m <span className="font-bold font-serif">Vinicius</span>.
+          </h1>
+          <p className="max-w-[18rem] mt-2 text-lg md:text-xl text-gray-500 dark:text-gray-400">
+            I share ideas, launch products, and build things.
+          </p>
+        </ProfileHeaderSection>
         <table className="w-full">
           <thead>
             <tr className="font-mono text-left text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800">

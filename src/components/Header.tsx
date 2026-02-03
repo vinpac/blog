@@ -11,11 +11,8 @@ export function Header({ className }: { className?: string }) {
     <header className={className}>
       <div className="flex items-center justify-between">
         <Link href="/" className="hover:opacity-80 transition-opacity">
-          <h1 className="text-md sm:text-xl font-semibold text-gray-900 dark:text-white">
-            Vinicius Pacheco{" "}
-            <span className="block sm:inline text-gray-500 dark:text-gray-400 font-normal">
-              @vinpac
-            </span>
+          <h1 className="text-xl sm:text-xl font-semibold text-gray-900 dark:text-white">
+            @vinpac
           </h1>
         </Link>
         <div className="flex items-center gap-2">

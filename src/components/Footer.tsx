@@ -6,7 +6,7 @@ export function Footer({ className }: { className?: string }) {
 
   return (
     <footer
-      className={` dark:text-gray-400 border-t print:hidden border-gray-200 dark:border-gray-800 mt-24 pt-8 pb-16 ${className}`}
+      className={` dark:text-gray-400 print:hidden pt-8 pb-16 ${className}`}
     >
       <div className="flex text-gray-400 items-center justify-between">
         <div className="text-sm">
@@ -21,7 +21,15 @@ export function Footer({ className }: { className?: string }) {
           </Link>
         </nav>
       </div>
-      <Signature className="text-6xl w-[2em] h-[2em] mx-auto mt-12" />
+      <div className="items-center flex pt-12">
+        <Signature className="text-6xl w-[2em] h-[2em]" />
+
+        <img
+          src="/images/bust.gif"
+          alt="Vinicius Pacheco"
+          className="dark:invert size-48 ml-auto"
+        />
+      </div>
     </footer>
   );
 }
