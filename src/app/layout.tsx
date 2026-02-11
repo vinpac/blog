@@ -25,12 +25,17 @@ export const metadata: Metadata = {
       "Vinicius Pacheco is a Brazilian Full Stack Developer based in Rio de Janeiro.",
     url: "https://vinpac.io",
     siteName: "Vinicius Pacheco's blog",
-    images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     site: "@vinpac_io",
     creator: "@vinpac_io",
+  },
+  alternates: {
+    canonical: "https://vinpac.io",
+    types: {
+      "application/rss+xml": "https://vinpac.io/feed.xml",
+    },
   },
   metadataBase: new URL("https://vinpac.io"),
   icons: {
@@ -134,6 +139,22 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Vinicius Pacheco's blog",
+              url: "https://vinpac.io",
+              author: {
+                "@type": "Person",
+                name: "Vinicius Pacheco",
+                url: "https://vinpac.io/about",
+              },
+            }),
+          }}
+        />
       </body>
     </html>
   );

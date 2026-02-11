@@ -1,7 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Header } from "@/components/Header";
 import { getPosts } from "@/app/get-posts";
 import { ProfileHeaderSection } from "@/app/about/about-header";
+
+const FALLBACK_COLORS = [
+  "bg-rose-500",
+  "bg-amber-500",
+  "bg-emerald-500",
+  "bg-sky-500",
+  "bg-violet-500",
+  "bg-fuchsia-500",
+];
 
 export default async function Blog() {
   const posts = await getPosts();
@@ -10,7 +20,7 @@ export default async function Blog() {
   return (
     <>
       <Header />
-      <main className="bg-white dark:bg-gray-950 border-x dark:border-gray-800 border-b  pb-16 flex-1 mt-8">
+      <main className="bg-white dark:bg-gray-950 border-x dark:border-gray-800 border-b  pb-16 flex-1 mt-6">
         {/* Hero Section */}
         <ProfileHeaderSection>
           <h1 className="text-4xl md:text-5xl tracking-tight !leading-tight text-gray-900 dark:text-gray-100">
@@ -35,10 +45,12 @@ export default async function Blog() {
             </tr>
           </thead>
           <tbody>
-            {posts.map((post) => {
+            {posts.map((post, index) => {
               const year = new Date(post.date).getFullYear();
               const isNewYear = lastRenderedYear !== year;
               lastRenderedYear = year;
+              const fallbackColor =
+                FALLBACK_COLORS[index % FALLBACK_COLORS.length];
               return (
                 <tr
                   key={post.id}
@@ -55,9 +67,24 @@ export default async function Blog() {
                   <td className="px-2 pl-4 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-200">
                     <Link
                       href={`/${new Date(post.date).getFullYear()}/${post.id}`}
-                      className="block hover:underline py-3 w-full"
+                      className="flex items-center gap-2 hover:underline py-3 w-full"
                     >
-                      {post.title}
+                      <span className="w-5 h-5 flex-shrink-0 flex items-center justify-center">
+                        {post.image ? (
+                          <Image
+                            src={post.image}
+                            alt={post.title}
+                            width={20}
+                            height={20}
+                            className="rounded-sm object-contain"
+                          />
+                        ) : (
+                          <span
+                            className={`w-3 h-3 rotate-45 ${fallbackColor}`}
+                          />
+                        )}
+                      </span>
+                      <span>{post.title}</span>
                     </Link>
                   </td>
                   <td className="px-2 pr-4 py-3 text-gray-500 text-right w-5">

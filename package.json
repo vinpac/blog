@@ -7,13 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "new-post": "bun ./new-post.ts",
     "sync-posts-json": "bun ./sync-posts-json.ts",
     "postinstall": "bun sync-posts-json",
-    "ts:check": "tsc --noEmit",
+    "ts:check": "node node_modules/typescript/bin/tsc --noEmit",
     "video:dev": "remotion studio videos/src/index.ts",
     "video:build": "remotion bundle videos/src/index.ts",
     "video:upgrade": "remotion upgrade",
-    "video:lint": "eslint src && tsc"
+    "video:lint": "eslint src && node node_modules/typescript/bin/tsc"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",

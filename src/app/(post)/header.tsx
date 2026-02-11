@@ -16,13 +16,11 @@ export const PostHeader = ({ posts }: { posts: Post[] }) => {
   }
 
   return (
-    <>
-      <Header />
-
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 mt-6">
+    <div className="-mx-6 -mt-8 px-6 py-8 dark:bg-gray-900/50 border-b dark:border-gray-800">
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
         {initialPost.title}
       </h1>
-      <div className="text-gray-600 dark:text-gray-500 mb-6 text-sm flex">
+      <div className="text-gray-600 dark:text-gray-500 text-sm flex">
         <abbr title={initialPost.date} className="no-underline">
           {format(new Date(initialPost.date), "MMMM d, yyyy")} (
           {formatDistanceToNow(new Date(initialPost.date), {
@@ -32,6 +30,6 @@ export const PostHeader = ({ posts }: { posts: Post[] }) => {
         </abbr>
         <span className="ml-auto">{views} views</span>
       </div>
-    </>
+    </div>
   );
 };

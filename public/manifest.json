@@ -1,5 +1,11 @@
 {
-  "name": "App",
+  "name": "Vinicius Pacheco's blog",
+  "short_name": "vinpac.io",
+  "description": "Vinicius Pacheco is a Brazilian Full Stack Developer based in Rio de Janeiro.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "icons": [
     {
       "src": "/favicon/dark/android-icon-36x36.png",

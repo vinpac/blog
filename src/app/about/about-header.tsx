@@ -42,7 +42,7 @@ export const AboutHeader = () => {
         Vinicius Pacheco{" "}
       </h1>
       <span className="block text-gray-500 font-medium text-2xl mt-1.5">
-        Senior Software Engineer
+        Senior Full-Stack Software Engineer
       </span>
       <p className="mt-4 text-lg print:text-lg md:text-lg text-gray-500 dark:text-gray-400">
         🇧🇷 Brazil · Fluent English
